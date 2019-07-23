@@ -44,22 +44,17 @@ RUN apt-get update \
     && if [ -f "/tmp/pip-tmp/requirements.txt" ]; then pip install -r /tmp/pip-tmp/requirements.txt; fi \
     && rm -rf /tmp/pip-tmp \
     && apt-get -y install fish vim postgresql-client sqitch locales 
-    RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    locale-gen
-    RUN wget -q -O - https://tjend.github.io/repo_terraform/repo_terraform.key | apt-key add - && \
-    echo 'deb [arch=amd64] https://tjend.github.io/repo_terraform stable main' >> /etc/apt/sources.list.d/terraform.list && \
-    curl -sL https://deb.nodesource.com/setup_10.x | bash -
-    RUN apt-get update
-    RUN apt-get install -y terraform nodejs awscli
-    # npm install -g serverlesss
-    ENV LANG en_US.UTF-8  
-    ENV LANGUAGE en_US:en  
-    ENV LC_ALL en_US.UTF-8   
-    #
-    # Clean up
-    # && apt-get autoremove -y \
-    # && apt-get clean -y \
-    # && rm -rf /var/lib/apt/lists/*
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+locale-gen
+RUN wget -q -O - https://tjend.github.io/repo_terraform/repo_terraform.key | apt-key add - && \
+echo 'deb [arch=amd64] https://tjend.github.io/repo_terraform stable main' >> /etc/apt/sources.list.d/terraform.list && \
+curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get update
+RUN apt-get install -y terraform nodejs awscli
+RUN npm install -g serverless
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8   
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
