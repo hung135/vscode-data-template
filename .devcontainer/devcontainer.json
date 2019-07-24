@@ -10,6 +10,8 @@
 
 	// Uncomment the next line to run commands after the container is created.
 	// "postCreateCommand": "python --version",
+	"postCreateCommand": "npm install -g serverless",
+
 	"extensions": [
 	],
 	"settings": {

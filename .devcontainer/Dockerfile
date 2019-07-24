@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-FROM python:3
+FROM python:3.6
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -23,7 +23,6 @@ RUN apt-get update \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
     && apt-get -y install git procps lsb-release \
-
     # Install Docker CE CLI
     && apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common lsb-release \
     && curl -fsSL https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/gpg | (OUT=$(apt-key add - 2>&1) || echo $OUT) \
@@ -51,7 +50,7 @@ RUN apt-get update \
     curl -sL https://deb.nodesource.com/setup_10.x | bash -
     RUN apt-get update
     RUN apt-get install -y terraform nodejs awscli
-    # npm install -g serverlesss
+    #RUN npm install -g serverlesss
     ENV LANG en_US.UTF-8  
     ENV LANGUAGE en_US:en  
     ENV LC_ALL en_US.UTF-8   
