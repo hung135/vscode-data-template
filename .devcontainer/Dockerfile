@@ -45,10 +45,10 @@ RUN apt-get update \
     && rm -rf /tmp/pip-tmp \
     && apt-get -y install fish vim postgresql-client sqitch locales 
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-locale-gen
+    locale-gen
 RUN wget -q -O - https://tjend.github.io/repo_terraform/repo_terraform.key | apt-key add - && \
-echo 'deb [arch=amd64] https://tjend.github.io/repo_terraform stable main' >> /etc/apt/sources.list.d/terraform.list && \
-curl -sL https://deb.nodesource.com/setup_10.x | bash -
+    echo 'deb [arch=amd64] https://tjend.github.io/repo_terraform stable main' >> /etc/apt/sources.list.d/terraform.list && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update
 RUN apt-get install -y terraform nodejs awscli
 RUN npm install -g serverless
