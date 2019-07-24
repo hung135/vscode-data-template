@@ -47,13 +47,17 @@ We will be using a UNIX based system such as a MAC or Linux system. You can foll
    ```bash
    cd <directory-name>
    ```
-5. `git clone`
+5. `git clone` the repository
    ![Git clone](content/git-clone.gif)
    ```bash
    git clone https://github.com/cfpb/vscode-template.git
    ```
+   
 6. Open VSCODE
+
    ![Open VSCODE MAC](content/open-vs-code.gif)
+   
+   
 7. Open pulled project
    ![Open project](content/open-project.gif)
 8. Open project up in container
