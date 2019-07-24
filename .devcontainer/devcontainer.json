@@ -1,6 +1,6 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
-	"name": "AWS DEV Enironment",
+	"name": "AWS DEV Environment",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspace",
@@ -10,7 +10,7 @@
 
 	// Uncomment the next line to run commands after the container is created.
 	// "postCreateCommand": "python --version",
-	"postCreateCommand": "npm install -g serverless",
+	//"postCreateCommand": "npm install -g serverless",
 
 	"extensions": [
 	],
