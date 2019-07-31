@@ -1,5 +1,5 @@
-version: '3'
 
+version: '3'
 services:
   app:
     build: 
@@ -10,4 +10,5 @@ services:
       - ..:/workspace
       - ~/.gitconfig:/root/.gitconfig
       - /var/run/docker.sock:/var/run/docker.sock
+      - $HOME/.aws:/root/.aws:ro
     command: sleep infinity
